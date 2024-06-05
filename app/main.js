@@ -8,7 +8,8 @@ async function getBuscarLivrosDaAPI(){
     console.table(livros);
 
     let livrosComDesconto = aplicarDesconto(livros)
-    exibirLivrosNaTela(livros);
+    exibirLivrosNaTela(livrosComDesconto);
+    console.table(livrosComDesconto);
 }
 
 // - forEach()
