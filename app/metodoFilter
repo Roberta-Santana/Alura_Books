@@ -1,0 +1,7 @@
+function categoria(livros){
+    const frontEnd = livros.filter(livro=>{
+        return {...livro, categoria:'Front-end'}
+    })
+    return frontEnd;
+    console.table(frontEnd)
+}
