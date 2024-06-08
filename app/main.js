@@ -5,19 +5,17 @@ getBuscarLivrosDaAPI();
 async function getBuscarLivrosDaAPI(){
     const res = await fetch(endpointDaApi);
     livros = await res.json();
-    console.table(livros);
-    let livrosComDesconto = aplicarDesconto(livros)
+    //console.table(livros);
+    let livrosComDesconto = aplicarDesconto(livros);
     exibirLivrosNaTela(livrosComDesconto);
-    console.table(livrosComDesconto);
-    
+    //console.table(livrosComDesconto);
 }
 
-
 // - forEach()
-let linguagens = ['Js', 'Python', 'C#'];
-/* for(i=0;i<linguagens.length;i++){
+/*let linguagens = ['Js', 'Python', 'C#'];
+for(i=0;i<linguagens.length;i++){
     console.log(linguagens[i])
-} */
-/* linguagens.forEach(elemento => {
-    console.log(elemento)}
+} 
+linguagens.forEach(elemento => 
+    {console.log(elemento)}
 ) */

@@ -1,6 +1,7 @@
 const elementoParaInserirLivro = document.getElementById('livros');
 
 function exibirLivrosNaTela(listaDeLivros){
+  elementoParaInserirLivro.innerHTML = '';
     listaDeLivros.forEach(livro => {
         elementoParaInserirLivro.innerHTML +=`<div class="livro">
         <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
