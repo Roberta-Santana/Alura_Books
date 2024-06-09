@@ -16,8 +16,7 @@ btnFiltrarLivrosFront.addEventListener('click', filtrarLivros);
 //APLICANDO NOS LIVROS
 //1- pegar todos os botões
 const botoes = document.querySelectorAll('.btn');
-let livrosFiltrados;
-let valor;
+
 //2 - Pegar a lista de botões, definir que a cada elemento da lista 
 //irá executar um evento, atraves de um click, fazendo um filter de front, back, dados...
 botoes.forEach(btn => btn.addEventListener('click', filtrarLivros))
@@ -27,10 +26,11 @@ function filtrarLivros(){
     const elementoBtn = document.getElementById(this.id);
     //4 - passar o valor do ID para var categoria
     const categoria = elementoBtn.value;
-    livrosFiltrados = categoria =='disponivel'? filtarPorDisponobilidade(): filtarPorCategoria(categoria);
+    const livrosFiltrados = categoria =='disponivel'? filtarPorDisponobilidade(): filtarPorCategoria(categoria);
     exibirLivrosNaTela(livrosFiltrados);
     if(categoria == 'disponivel'){
-        exibirValorTotalDosLivrosDisponíveis();
+        const valorTotal = calcularValorTotalDeLivrosDisponíveis(livrosFiltrados);
+        exibirValorTotalDosLivrosDisponíveis(valorTotal);
     }
 }
 
@@ -42,9 +42,9 @@ function filtarPorDisponobilidade() {
     return livros.filter(livro => livro.quantidade > 0);
 }
 
-function exibirValorTotalDosLivrosDisponíveis(){
+function exibirValorTotalDosLivrosDisponíveis(valorTotal){
         elementoComValorTotalDeLivrosDisponiveis.innerHTML += `<div class="livros__disponiveis">
-      <p>Todos os livros disponíveis por R$ <span id="valor">${livro.reduce(((acc,livro) => acc+livro.preco))}</span></p>
+      <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
     </div>`
 }
 
