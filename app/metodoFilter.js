@@ -26,10 +26,12 @@ function filtrarLivros(){
     const elementoBtn = document.getElementById(this.id);
     //4 - passar o valor do ID para var categoria
     const categoria = elementoBtn.value;
-    console.log(categoria);
+    
     let livrosFiltrados = livros.filter(livro => 
         livro.categoria == categoria); 
     exibirLivrosNaTela(livrosFiltrados);
+
+
 }
 
 
